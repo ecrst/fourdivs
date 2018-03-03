@@ -78,11 +78,11 @@ const getBoxes = (x, y, borderWidth) => {
             .map(convertCoordinatesToElemets)
 
   if (els.every(b => b == null || b.classList.contains('wrapper-box'))) return null;
-
+  console.log(els);
   return (isNullOrWrapper(els[0]) && isNullOrWrapper(els[1])) ? props.boxes :
            {
-             top: props.boxes['box'+els[0].id.slice(-1)],
-             bot: props.boxes['box'+els[1].id.slice(-1)],
+             top: els[0].parentElement,
+             bot: els[1].parentElement,
            }
 
 
