@@ -36,26 +36,37 @@ document.addEventListener('mousedown', (e) => {
     return boxes.hasOwnProperty('box1') ? resizeVert(e) : resizeHor(e)
   }
   function resizeVert(e) {
-    console.log('kek');
     let change = currentCoords.x - e.x;
     currentCoords.x = e.x;
-    boxes.box2.style.width = (parseInt(getComputedStyle(boxes.box2, '').width) + change) + 'px';
-    boxes.box4.style.width = (parseInt(getComputedStyle(boxes.box4, '').width) + change) + 'px';
-    boxes.box1.style.width = (parseInt(getComputedStyle(boxes.box1, '').width) - change) + 'px';
-    boxes.box3.style.width = (parseInt(getComputedStyle(boxes.box3, '').width) - change) + 'px';
+    boxes.box2.style.width = (parseFloat(boxes.box2.getBoundingClientRect().width) + change) + 'px';
+    boxes.box4.style.width = (parseFloat(boxes.box4.getBoundingClientRect().width) + change) + 'px';
+    boxes.box1.style.width = (parseFloat(boxes.box1.getBoundingClientRect().width) - change) + 'px';
+    boxes.box3.style.width = (parseFloat(boxes.box3.getBoundingClientRect().width) - change) + 'px';
   }
   function resizeHor(e) {
-    console.log('keks');
     let change = currentCoords.y - e.y;
     currentCoords.y = e.y;
-    boxes.top.style.height = (parseInt(getComputedStyle(boxes.top, '').height) - change) + 'px';
-    boxes.bot.style.height = (parseInt(getComputedStyle(boxes.bot, '').height) + change) + 'px';
+    boxes.top.style.height = (parseFloat(boxes.top.getBoundingClientRect().height) - change) + 'px';
+    boxes.bot.style.height = (parseFloat(boxes.bot.getBoundingClientRect().height) + change) + 'px';
   }
 
   function isBorder(el) {
     return el.classList.contains('wrapper-box')
   }
 })
+
+document.addEventListener('click', e => {
+  if (e.target && e.target.matches('button.fullscreen-btn')) {
+    e.target.offsetParent.classList.toggle('fullscreen-box')
+  }
+})
+document.addEventListener('dblclick', e => {
+  console.log('le');
+  if (e.target && e.target.matches('div.header')) {
+    e.target.offsetParent.classList.toggle('fullscreen-box')
+  }
+})
+
 
 /**
 * Is clicked element a border
