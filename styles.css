@@ -7,6 +7,7 @@
   position: relative;
   width: 100vw;
   height: 100vh;
+  background-color: #bbb;
 }
 
 .wrapper-box {
@@ -14,7 +15,6 @@
   box-sizing: border-box;
   width: 50vw;
   height: 50vh;
-  transition: all .04s linear ;
 }
 
 .content-box {
@@ -23,9 +23,6 @@
   color: white;
   font-size: 2em;
   font-family: monospace;
-  background-color: #bbb;
-  background-size: cover;
-
   /* display: flex; */
   /* justify-content: center; */
   /* align-items: center; */
@@ -38,17 +35,6 @@
   text-align: center;
 }
 
-.fullscreen-btn {
-  background-color: #FFF;
-  float: right;
-  height: 30px;
-  width: 30px;
-}
-.fullscreen-box {
-  width: 100vw;
-  height: 100vh;
-  z-index: 8000;
-}
 .top {
   top: 0;
   border-bottom: 5px black solid;
